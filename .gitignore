@@ -2,6 +2,6 @@
 .vscode/
 *.iml
 
-db/data
+/db/data
 /mailhog/data
 /symfony/data
