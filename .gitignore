@@ -1,2 +1,7 @@
-.idea
+.idea/
+.vscode/
+*.iml
+
 /db/data
+/mailhog/data
+/symfony/data
