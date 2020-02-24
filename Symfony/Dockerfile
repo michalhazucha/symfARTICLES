@@ -1,5 +1,4 @@
-FROM touch4it/docker-php7:php7.3-fpm-nginx-dev
-
+FROM php:7.4.3-fpm
 RUN apk --update add --no-cache acl dcron yarn
 
 # php
@@ -9,12 +8,12 @@ RUN echo "date.timezone = Europe/Bratislava" > /usr/local/etc/php/conf.d/timezon
     echo "post_max_size = 50M" >> /usr/local/etc/php/conf.d/upload.ini && \
     echo "session.gc_maxlifetime = 2592000" >> /usr/local/etc/php/conf.d/upload.ini
 
+ARG WORK_DIR
+WORKDIR $WORKDIR
 
-COPY . /var/www/html
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-COPY ./entrypoint.sh /entrypoint.sh
+COPY composer.json $WORK_DIR
+COPY composer.lock $WORK_DIR
+COPY bin $WORK_DIR/bin
+COPY src $WORK_DIR/src
 
-WORKDIR /var/www/html
 
-
-CMD ["/entrypoint.sh"]
