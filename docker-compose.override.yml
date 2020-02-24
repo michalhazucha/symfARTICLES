@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  php:
+    build: ./symfony
+    volumes:
+      # - ./symfony/entrypoint.sh:/entrypoint.sh
+      - ./symfony:/var/www/html:cached
+      - ./symfony/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 9000:80
+
+  mariadb:
+    build: ./db
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d
+      - ./db/data:/var/lib/mysql
+      - ./db/dump:/dump

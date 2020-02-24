@@ -1,7 +1,22 @@
-version: '3'
-services:
-  nginx:
-    build:
-      context: .
+version: '2'
 
+services:
+  php:
+    restart: always
+    links:
+      - mariadb
+    depends_on:
+      - mariadb
+    expose:
+      - 80
+
+  mariadb:
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+      MYSQL_DATABASE: test
+    expose:
+      - 3306
 
