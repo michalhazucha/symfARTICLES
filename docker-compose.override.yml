@@ -1,5 +1,5 @@
 version: '2'
-
+#pre každý enviroment zvlášť
 services:
   php:
     build: ./symfony
@@ -7,6 +7,7 @@ services:
       # - ./symfony/entrypoint.sh:/entrypoint.sh
       - ./symfony:/var/www/html:cached
       - ./symfony/nginx.conf:/etc/nginx/conf.d/default.conf
+#port na ktorý sa zobrazuje lokálne:port na ktorom počúva nginx
     ports:
       - 8080:80
 
@@ -14,5 +15,8 @@ services:
     build: ./db
     volumes:
       - ./db/init:/docker-entrypoint-initdb.d
+      #súbory ktoré sa vytvoria na OS v var/lib mysql ulož do ku nám do db/data
+      # vytvorí sa čistý kontajner kde sa pridajú data z databázy pri štarte dockeru
+      # mysql dump - vytvorí zálohu databázy
       - ./db/data:/var/lib/mysql
       - ./db/dump:/dump

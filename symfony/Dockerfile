@@ -1,5 +1,5 @@
 FROM touch4it/docker-php7:php7.3-fpm-nginx-dev
-
+#img z ktorého výchádza použítý image
 RUN apk --update add --no-cache acl dcron yarn
 
 # php
@@ -16,6 +16,7 @@ RUN echo "date.timezone = Europe/Bratislava" > /usr/local/etc/php/conf.d/timezon
 #    echo "" >> /etc/crontabs/root
 
 COPY . /var/www/html
+#kopirovanie do kontainera
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 # COPY ./entrypoint.sh /entrypoint.sh
 

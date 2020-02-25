@@ -1,5 +1,5 @@
 version: '2'
-
+#pre celú technology pre všetky enviromenty dokopy
 services:
   php:
     restart: always
