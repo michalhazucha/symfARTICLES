@@ -1,5 +1,29 @@
 {% extends 'base.html.twig' %}
 {% block  title%} SymfArticles{% endblock %}
 {% block body %}
-	<h1>Articles</h1>
+	{% if articles %}
+		<table id="articles" class="table table-striped">
+			<thead>
+			<tr>
+				<th>Article Title</th>
+				<th>Actions</th>
+			</tr>
+			</thead>
+			<tbody>
+			{% for article in articles %}
+				<tr>
+					<td>{{ article }}</td>
+					<td>
+						<a href="#}" class="btn btn-dark">Show</a>
+						<a href="/article/edit/#" class="btn btn-light">Edit</a>
+						<a href="#" class="btn btn-danger delete-article" data-id="">Delete</a>
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<p>No articles to display</p>
+	{% endif %}
+
 {% endblock %}

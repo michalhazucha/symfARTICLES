@@ -20,7 +20,9 @@ class ArticleController extends AbstractController
 	 * @Method({"GET"})
 	 */
 	public function index(){
-		return $this->render('articles/index.html.twig');
+
+		$articles=['Heading1','Heading2','Heading3'];
+		return $this->render('articles/index.html.twig',array('articles'=>$articles));
 	}
 };
 
