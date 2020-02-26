@@ -21,7 +21,7 @@ class ArticleController extends AbstractController
 	 */
 	public function index(){
 
-		$articles=['Heading1','Heading2','Heading3'];
+		$articles=['Heading 0','Heading2','Heading3'];
 		return $this->render('articles/index.html.twig',array('articles'=>$articles));
 	}
 };
