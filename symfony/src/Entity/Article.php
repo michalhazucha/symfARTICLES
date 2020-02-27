@@ -20,7 +20,7 @@ class Article
 	/**
 	 * @ORM\Column(type="date")
 	 */
-	private $createdDate;
+	private $createdAt;
 
 	/**
 	 * @ORM\Column(type="string", length=255)
@@ -41,14 +41,14 @@ class Article
 		return $this->id;
 	}
 
-	public function getCreatedDate(): ?\DateTimeInterface
+	public function getCreatedAt(): ?\DateTimeInterface
 	{
 		return $this->createdDate;
 	}
 
-	public function setCreatedDate(\DateTimeInterface $createdDate): self
+	public function setCreatedAt(\DateTimeInterface $createdAt): self
 	{
-		$this->createdDate = $createdDate;
+		$this->createdAt = substr($createdAt,0,10);;
 
 		return $this;
 	}

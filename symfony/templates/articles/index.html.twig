@@ -14,9 +14,9 @@
 				<tr>
 					<td>{{ article }}</td>
 					<td>
-						<a href="#}" class="btn btn-dark">Show</a>
-						<a href="/article/edit/#" class="btn btn-light">Edit</a>
-						<a href="#" class="btn btn-danger delete-article" data-id="">Delete</a>
+						<a href="/article/{{article}}" class="btn btn-dark">Show</a>
+						<a href="/article/edit/{{article}}" class="btn btn-light">Edit</a>
+						<a href="#" class="btn btn-danger delete-article" data-id="{{ article }}">Delete</a>
 					</td>
 				</tr>
 			{% endfor %}
