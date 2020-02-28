@@ -14,11 +14,11 @@
 				<tr>
 					<td>{{ article.title }}</td>
 					<td>
-						<a href="/article/{{article.id}}" class="btn btn-dark">Show</a>
-						<a href="/article/edit/{{article.id}}" class="btn btn-light">Edit</a>
-						<a href="/article/delete/{{article.id}}" class="btn btn-danger delete-article" data-id="{{ article.id}}">Delete</a>
+						<a href="/article/{{article.id}}" class="btn btn-dark m-1">Show</a>
+						<a href="/article/edit/{{article.id}}" class="btn btn-light m-1">Edit</a>
+						<a href="/article/delete/{{article.id}}" class="btn btn-danger delete-article m-1" data-id="{{ article.id}}">Delete</a>
 					</td>
-					{##<td>{{ article.createdAt }}</td>#}
+					<td class="text-info"> {{ article.createdAt|date("d.m.Y") }}</td>
 				</tr>
 			{% endfor %}
 			</tbody>
