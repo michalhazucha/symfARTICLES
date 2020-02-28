@@ -11,14 +11,14 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Article
 {
 	/**
+	 * @var int|null
 	 * @ORM\Id()
 	 * @ORM\GeneratedValue()
-	 * @ORM\Column(type="integer")
+	 * @ORM\Column(type="integer" )
 	 */
 	private $id;
-
 	/**
-	 * @ORM\Column(type="date")
+	 * @ORM\Column(type="datetime", nullable=false)
 	 */
 	private $createdAt;
 
@@ -34,21 +34,20 @@ class Article
 	 */
 	private $body;
 
-
 	// ... getters and setters
 	public function getId(): ?int
 	{
 		return $this->id;
 	}
 
-	public function getCreatedAt(): ?\DateTimeInterface
+	public function getCreatedAt(): ?\DateTime
 	{
 		return $this->createdDate;
 	}
 
-	public function setCreatedAt(\DateTimeInterface $createdAt): self
+	public function setCreatedAt(\DateTime $createdAt): self
 	{
-		$this->createdAt = substr($createdAt,0,10);;
+		$this->createdAt = $createdAt;
 
 		return $this;
 	}

@@ -55,7 +55,7 @@ class ArticleController extends AbstractController
 	//Fetch article from database
 	public function show($id) {
 		$article = $this->getDoctrine()->getRepository(Article::class)->find($id);
-		return $this->render('articles/show.html.twig', array('article' => $article));
+		return $this->render('articles/article.html.twig', array('article' => $article));
 	}
 
 	/**
@@ -81,17 +81,16 @@ class ArticleController extends AbstractController
 	}
 
 	/**
-	 * @Route("/article/delete/{id}")
-	 * @Method({"DELEtE"})
-	 *
+	 * @Route("/article/delete/{id}",name="delete")
+	 * @Method({"delete"})
 	 */
-	public function delete( Request $request,$id ) {
+	public function delete(Request $request,$id ) {
 		$article = $this->getDoctrine()->getRepository(Article::class)->find($id);
-		$entityManager=$this->getDoctrine()->getManager();
-		$entityManager->remove($article);
-		$entityManager->flush();
-		$response=new Response();
-		$response->send();
+		$this->getDoctrine()->getManager()->remove($article);
+		$this->getDoctrine()->getManager()->flush();
+		return $this->redirectToRoute('article_list');
 	}
+
+
 };
 

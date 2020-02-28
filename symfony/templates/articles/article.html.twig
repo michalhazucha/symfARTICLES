@@ -2,8 +2,11 @@
 {% block title %}SymthArt{% endblock %}
 
 {% block body %}
-	<h1>{{ article }}</h1>
-	<p>{{ article }}</p>
+	<div class="container-fluid"><div class="row"><div class="col-8"><h1>{{ article.title }}</h1></div>
+			<div class="col-4"><h3>{{ article.createdAt.toString() }}</h3></div></div>
+	</div>
+
+	<p>{{ article.body }}</p>
 	<hr>
-	<a href="/">🏠</a>
+	<a href="/" class="btn btn-primary"> Let's get back home <br>←</a>
 {% endblock %}
