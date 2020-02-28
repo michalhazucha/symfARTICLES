@@ -2,11 +2,11 @@
 {% block title %}SymthArt{% endblock %}
 
 {% block body %}
-	<div class="container-fluid"><div class="row"><div class="col-8"><h1>{{ article.title }}</h1></div>
-			<div class="col-4"><h3>{{ article.createdAt.toString() }}</h3></div></div>
+	<div class="container-fluid">
+		<div class="row"><div class="col-8"><h1>{{ article.title }}</h1></div>
+		<div class="col-4"><h3> {{ article.createdAt|date("d.m.Y") }} </h3></div></div>
 	</div>
+<div class="container-fluid"><p>{{ article.body }}</p></div>
 
-	<p>{{ article.body }}</p>
-	<hr>
 	<a href="/" class="btn btn-primary"> Let's get back home <br>←</a>
 {% endblock %}

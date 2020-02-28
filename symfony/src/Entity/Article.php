@@ -42,7 +42,7 @@ class Article
 
 	public function getCreatedAt(): ?\DateTime
 	{
-		return $this->createdDate;
+		return $this->createdAt;
 	}
 
 	public function setCreatedAt(\DateTime $createdAt): self
