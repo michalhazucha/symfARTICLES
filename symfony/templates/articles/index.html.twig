@@ -12,12 +12,13 @@
 			<tbody>
 			{% for article in articles %}
 				<tr>
-					<td>{{ article }}</td>
+					<td>{{ article.title }}</td>
 					<td>
-						<a href="#}" class="btn btn-dark">Show</a>
-						<a href="/article/edit/#" class="btn btn-light">Edit</a>
-						<a href="#" class="btn btn-danger delete-article" data-id="">Delete</a>
+						<a href="/article/{{article.id}}" class="btn btn-dark m-1">Show</a>
+						<a href="/article/edit/{{article.id}}" class="btn btn-light m-1">Edit</a>
+						<a href="/article/delete/{{article.id}}" class="btn btn-danger delete-article m-1" data-id="{{ article.id}}">Delete</a>
 					</td>
+					<td class="text-info"> {{ article.createdAt|date("d.m.Y") }}</td>
 				</tr>
 			{% endfor %}
 			</tbody>
@@ -26,4 +27,8 @@
 		<p>No articles to display</p>
 	{% endif %}
 
+{% endblock %}
+
+{% block javascripts %}
+	<script src="js/main.js"></script>
 {% endblock %}

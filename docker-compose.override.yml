@@ -20,3 +20,8 @@ services:
       # mysql dump - vytvorí zálohu databázy
       - ./db/data:/var/lib/mysql
       - ./db/dump:/dump
+
+  phpmyadmin:
+    image: phpmyadmin-alpine
+    ports:
+      - 8081:80

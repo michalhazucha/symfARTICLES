@@ -9,7 +9,6 @@ services:
       - mariadb
     expose:
       - 80
-
   mariadb:
     restart: always
     environment:
@@ -19,4 +18,3 @@ services:
       MYSQL_DATABASE: test
     expose:
       - 3306
-
